@@ -9,7 +9,7 @@ from colorama import Fore
 os.system("pyfiglet 7R0J4N P0W3R")
 print(f"""{Fore.GREEN}
 ______________________________________________________________________________________
- * This Program was made by a MYANMAR Hacker called Swam Htet Aung(4L13N) *{Fore.RED}
+ * This Program was made by 4L13N from MYANMAR *{Fore.RED}
 
  [!] Developer is not responsible for any misuse or damage caused by 7R0J4N P0W3R[!]
  [!] Just For fun and educational purposes only[!]
